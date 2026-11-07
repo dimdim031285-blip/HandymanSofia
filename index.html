@@ -3,53 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handyman Sofia — Профессиональный домашний мастер</title>
+    <title>Handyman Sofia — Профессиональный домашний мастер в Софии</title>
+    <meta name="description" content="Профессиональный бытовой ремонт в Софии: сантехника, электрика, муж на час. Работаем на русском языке. Быстро, качественно, с гарантией.">
+    <meta name="theme-color" content="#ff7900">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff7900;
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --text-light: #ffffff;
-            --text-gray: #a0a0a0;
-            --border: #2d2d2d;
+            --primary-hover: #e56c00;
+            --primary-soft: rgba(255, 121, 0, 0.12);
+            --bg: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222;
+            --bg-header: #0a0a0a;
+            --text: #ffffff;
+            --text-muted: #a3a3a3;
+            --border: #2a2a2a;
+            --success: #22c55e;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Навигация */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ===== HEADER ===== */
         header {
-            background-color: #0a0a0a;
+            background: var(--bg-header);
             border-bottom: 2px solid var(--primary);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(12px);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 14px 20px;
+            gap: 16px;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 1.35rem;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .logo span {
@@ -58,44 +84,115 @@
 
         nav {
             display: flex;
-            gap: 20px;
+            gap: 6px;
         }
 
         nav a {
-            color: var(--text-light);
-            text-decoration: none;
+            color: var(--text);
             font-weight: 600;
-            font-size: 15px;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s;
+            font-size: 0.9rem;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a.active {
             color: var(--primary);
-            background: rgba(255, 121, 0, 0.1);
+            background: var(--primary-soft);
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 0 20px rgba(255, 121, 0, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1.5px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
         .btn-tg {
-            background: var(--primary);
-            color: var(--bg-dark);
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
+            background: #2AABEE;
+            color: #fff;
         }
 
         .btn-tg:hover {
-            background: #e56c00;
-            box-shadow: 0 0 15px rgba(255,121,0,0.4);
+            background: #229ED9;
+            box-shadow: 0 0 18px rgba(42, 171, 238, 0.4);
         }
 
-        /* Управление страницами */
+        .btn-wa {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .btn-wa:hover {
+            background: #1ebe57;
+            box-shadow: 0 0 18px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-vb {
+            background: #7360F2;
+            color: #fff;
+        }
+
+        .btn-vb:hover {
+            background: #5e4dd1;
+            box-shadow: 0 0 18px rgba(115, 96, 242, 0.4);
+        }
+
+        .btn-sm {
+            padding: 9px 16px;
+            font-size: 0.85rem;
+        }
+
+        .btn-icon {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        /* ===== PAGES ===== */
         .page {
             display: none;
-            animation: fadeIn 0.4s ease-in-out;
+            animation: fadeIn 0.35s ease;
         }
 
         .page.active {
@@ -103,264 +200,842 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Общие компоненты */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .hero-section {
+        /* ===== HERO ===== */
+        .hero {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.95)), url('https://unsplash.com') center/cover;
-            border-bottom: 1px solid var(--border);
+            padding: 70px 20px 50px;
+            background: radial-gradient(ellipse at top, rgba(255,121,0,0.08) 0%, transparent 60%);
         }
 
-        .hero-section h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
-        .hero-section p {
-            color: var(--text-gray);
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 30px;
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto 28px;
         }
 
-        /* Диагностический баннер */
-        .alert-banner {
-            background: rgba(255, 121, 0, 0.1);
-            border: 1px dashed var(--primary);
-            border-radius: 6px;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 16px;
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
         }
 
-        .alert-banner strong {
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .badge strong {
             color: var(--primary);
         }
 
-        /* Сетка цен */
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ===== ALERT ===== */
+        .alert {
+            background: linear-gradient(135deg, rgba(255,121,0,0.15), rgba(255,121,0,0.05));
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .alert strong {
+            color: var(--primary);
+        }
+
+        /* ===== FEATURES ===== */
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 14px;
+        }
+
+        .feature-card .link {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* ===== PRICE TABLE ===== */
         .price-table {
             background: var(--bg-card);
-            border-radius: 8px;
             border: 1px solid var(--border);
+            border-radius: var(--radius);
             overflow: hidden;
-            margin-top: 20px;
+            margin-bottom: 28px;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border);
+            gap: 16px;
+            transition: background 0.15s;
         }
 
         .price-item:last-child {
             border-bottom: none;
         }
 
+        .price-item:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
         .price-name {
-            font-weight: 500;
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .price-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
         }
 
         .price-value {
-            color: var(--primary);
             font-weight: 700;
-            background: rgba(255,121,0,0.08);
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-
-        /* Преимущества */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            padding: 25px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        .feature-card h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            font-size: 1.05rem;
+            min-width: 55px;
+            text-align: right;
         }
 
-        footer {
-            background: #0a0a0a;
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            margin-top: 20px;
+        }
+
+        .contact-section h2 {
             text-align: center;
-            padding: 30px;
-            color: var(--text-gray);
-            font-size: 14px;
-            border-top: 1px solid var(--border);
-            margin-top: 60px;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
         }
 
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
-            nav { flex-wrap: wrap; justify-content: center; }
+        .contact-section > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+        }
+
+        .messengers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .messenger-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .messenger-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .messenger-btn .icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .messenger-btn.tg {
+            background: rgba(42, 171, 238, 0.12);
+            border-color: rgba(42, 171, 238, 0.3);
+        }
+        .messenger-btn.tg:hover { background: rgba(42, 171, 238, 0.22); }
+        .messenger-btn.tg .icon { background: #2AABEE; }
+
+        .messenger-btn.wa {
+            background: rgba(37, 211, 102, 0.12);
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+        .messenger-btn.wa:hover { background: rgba(37, 211, 102, 0.22); }
+        .messenger-btn.wa .icon { background: #25D366; }
+
+        .messenger-btn.vb {
+            background: rgba(115, 96, 242, 0.12);
+            border-color: rgba(115, 96, 242, 0.3);
+        }
+        .messenger-btn.vb:hover { background: rgba(115, 96, 242, 0.22); }
+        .messenger-btn.vb .icon { background: #7360F2; }
+
+        .messenger-btn .info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .messenger-btn .info span:first-child {
+            font-size: 0.95rem;
+        }
+
+        .messenger-btn .info span:last-child {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        .hours-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        .hours-box h4 {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .hours-box p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .hours-box .note {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer p {
+            margin-bottom: 6px;
+        }
+
+        /* ===== MOBILE ===== */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        @media (max-width: 820px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 4px;
+                display: none;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-cta .btn span {
+                display: none;
+            }
+
+            .header-cta .btn {
+                padding: 10px 14px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .price-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .price-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .hero {
+                padding: 50px 16px 36px;
+            }
+
+            .messengers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating contact bar on mobile */
+        .float-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-header);
+            border-top: 1px solid var(--border);
+            padding: 10px 12px;
+            gap: 8px;
+            z-index: 999;
+            justify-content: space-around;
+        }
+
+        .float-bar a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 8px 4px;
+            border-radius: var(--radius-sm);
+        }
+
+        .float-bar a span.icon {
+            font-size: 1.25rem;
+        }
+
+        .float-bar a.tg { color: #2AABEE; }
+        .float-bar a.wa { color: #25D366; }
+        .float-bar a.vb { color: #7360F2; }
+
+        @media (max-width: 600px) {
+            .float-bar {
+                display: flex;
+            }
+            body {
+                padding-bottom: 70px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
         <div class="nav-container">
             <div class="logo" onclick="switchPage('home')">HANDYMAN <span>SOFIA</span></div>
-            <nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Меню">☰</button>
+
+            <nav id="main-nav">
                 <a onclick="switchPage('home')" id="nav-home" class="active">Главная</a>
                 <a onclick="switchPage('plumbing')" id="nav-plumbing">Сантехника</a>
                 <a onclick="switchPage('electric')" id="nav-electric">Электрика</a>
                 <a onclick="switchPage('handyman')" id="nav-handyman">Муж на час</a>
+                <a onclick="switchPage('contacts')" id="nav-contacts">Контакты</a>
             </nav>
-            <a href="https://t.me" target="_blank" class="btn-tg">Заказать</a>
+
+            <div class="header-cta">
+                <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                    <span>Заказать</span> 💬
+                </a>
+            </div>
         </div>
     </header>
-    <!-- СТРАНИЦА 1: ГЛАВНАЯ -->
+
+    <!-- ==================== HOME ==================== -->
     <div id="home" class="page active">
-        <section class="hero-section">
-            <h1>Премиальный сервис бытового ремонта</h1>
-            <p>Профессиональное решение любых домашних проблем в Софии. Быстро, надежно, на русском языке.</p>
-            <div class="alert-banner" style="max-width: 600px; margin: 0 auto 30px;">
-                ⏱️ <strong>Почасовой тариф на мелкие работы:</strong> Первый час — 30 €, последующие — 20 €.
+        <section class="hero">
+            <h1>Премиальный сервис<br>бытового ремонта в Софии</h1>
+            <p>Профессиональное решение любых домашних проблем. Быстро, надёжно, на русском языке.</p>
+
+            <div class="hero-badges">
+                <div class="badge">📍 Выезд и консультация — <strong>11 €</strong></div>
+                <div class="badge">🗣️ Русский язык</div>
+                <div class="badge">🛠️ Мелкий ремонт по часам</div>
+            </div>
+
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="btn btn-tg">
+                    Telegram
+                </a>
+                <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="btn btn-wa">
+                    WhatsApp
+                </a>
+                <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="btn btn-vb">
+                    Viber
+                </a>
             </div>
         </section>
-        
+
         <div class="container">
-            <div class="alert-banner">
-                📍 <strong>Выезд мастера для осмотра и консультации (без проведения ремонта) — всего 11 €.</strong> Если ремонт выполняется на месте, вы платите строго по прайсу выполненных услуг!
+            <div class="alert">
+                📍 <strong>Выезд мастера для осмотра и консультации (без ремонта) — всего 11 €</strong>. Если ремонт выполняется на месте, вы платите строго по прайсу выполненных услуг!
             </div>
-            
-            <h2 style="text-align:center; margin-bottom: 20px;">Направления работы</h2>
-            <div class="features-grid">
-                <div class="feature-card" style="cursor:pointer;" onclick="switchPage('plumbing')">
+
+            <h2 class="section-title">Направления работы</h2>
+            <div class="features">
+                <div class="feature-card" onclick="switchPage('plumbing')">
                     <h3>💧 Водопровод и Сантехника</h3>
                     <p>Ремонт и замена смесителей, сифонов, устранение течей, комплексное обслуживание и чистка бойлеров.</p>
-                    <span style="color:var(--primary); font-size:14px; font-weight:bold; display:block; margin-top:10px;">Перейти к прайсу →</span>
+                    <span class="link">Смотреть прайс →</span>
                 </div>
-                <div class="feature-card" style="cursor:pointer;" onclick="switchPage('electric')">
+                <div class="feature-card" onclick="switchPage('electric')">
                     <h3>⚡ Электромонтаж</h3>
                     <p>Безопасная установка люстр, замена розеток, выключателей, подключение кухонной техники и поиск замыканий.</p>
-                    <span style="color:var(--primary); font-size:14px; font-weight:bold; display:block; margin-top:10px;">Перейти к прайсу →</span>
+                    <span class="link">Смотреть прайс →</span>
                 </div>
-                <div class="feature-card" style="cursor:pointer;" onclick="switchPage('handyman')">
+                <div class="feature-card" onclick="switchPage('handyman')">
                     <h3>🛠️ Муж на час / Монтаж</h3>
-                    <p>Навешивание телевизоров, зеркал, полок, карнизов. Профессиональное сверление стен и сборка мебели.</p>
-                    <span style="color:var(--primary); font-size:14px; font-weight:bold; display:block; margin-top:10px;">Перейти к прайсу →</span>
+                    <p>Навешивание телевизоров, зеркал, полок. Сборка мебели. А также любые мелкие работы по дому по часовому тарифу.</p>
+                    <span class="link">Смотреть прайс →</span>
+                </div>
+            </div>
+
+            <!-- Quick contact -->
+            <div class="contact-section">
+                <h2>Как заказать</h2>
+                <p>Напишите удобным способом — ответим быстро и согласуем время</p>
+
+                <div class="messengers">
+                    <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="messenger-btn tg">
+                        <div class="icon">✈️</div>
+                        <div class="info">
+                            <span>Telegram</span>
+                            <span>@dimahandyman</span>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="messenger-btn wa">
+                        <div class="icon">💬</div>
+                        <div class="info">
+                            <span>WhatsApp</span>
+                            <span>+38 063 671 7701</span>
+                        </div>
+                    </a>
+                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="messenger-btn vb">
+                        <div class="icon">📞</div>
+                        <div class="info">
+                            <span>Viber</span>
+                            <span>+38 063 671 7701</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hours-box">
+                    <h4>🕒 Часы работы</h4>
+                    <p><strong>Пн–Пт:</strong> 09:00 – 18:00</p>
+                    <p><strong>Суббота:</strong> 09:00 – 13:00</p>
+                    <p><strong>Воскресенье:</strong> выходной</p>
+                    <p class="note">Время визита обязательно согласовывается заранее через Telegram, WhatsApp или Viber.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- СТРАНИЦА 2: САНТЕХНИКА -->
+    <!-- ==================== PLUMBING ==================== -->
     <div id="plumbing" class="page">
-        <div class="container">
-            <h2>💧 Услуги сантехника (ВиК) в Софии</h2>
-            <p style="color:var(--text-gray); margin-bottom: 20px;">Профессиональный ремонт и монтаж сантехнических приборов.</p>
-            
-            <div class="alert-banner">
-                🔧 <strong>Выезд, диагностика и консультация (без ремонта) — 11 €.</strong>
+        <div class="container" style="padding-top: 40px;">
+            <h2 class="section-title">💧 Услуги сантехника (ВиК) в Софии</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom:24px;">Профессиональный ремонт и монтаж сантехнических приборов</p>
+
+            <div class="alert">
+                🔧 <strong>Выезд, диагностика и консультация (без ремонта) — 11 €</strong>
             </div>
 
             <div class="price-table">
-                <div class="price-item"><span class="price-name">Замена или установка смесителя / крана</span><span class="price-value">45 €</span></div>
-                <div class="price-item"><span class="price-name">Монтаж или замена сифона раковины</span><span class="price-value">45 €</span></div>
-                <div class="price-item"><span class="price-name">Установка новой раковины / умывальника</span><span class="price-value">65 €</span></div>
-                <div class="price-item"><span class="price-name">Подключение стиральной или посудомоечной машины</span><span class="price-value">50 €</span></div>
-                <div class="price-item"><span class="price-name">Устранение локального засора канализации</span><span class="price-value">40 €</span></div>
-                <div class="price-item"><span class="price-name">Комплексная чистка бойлера от накипи</span><span class="price-value">75 €</span></div>
-                <div class="price-item"><span class="price-name">Замена ТЭНа / анода / термостата бойлера</span><span class="price-value">55 €</span></div>
+                <div class="price-item">
+                    <span class="price-name">Замена или установка смесителя / крана</span>
+                    <div class="price-right">
+                        <span class="price-value">45 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%97%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%81%D0%BC%D0%B5%D1%81%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%20%2F%20%D0%BA%D1%80%D0%B0%D0%BD%D0%B0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Монтаж или замена сифона раковины</span>
+                    <div class="price-right">
+                        <span class="price-value">45 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D1%81%D0%B8%D1%84%D0%BE%D0%BD%D0%B0%20%D1%80%D0%B0%D0%BA%D0%BE%D0%B2%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Установка новой раковины / умывальника</span>
+                    <div class="price-right">
+                        <span class="price-value">65 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B0%D0%BA%D0%BE%D0%B2%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Подключение стиральной или посудомоечной машины</span>
+                    <div class="price-right">
+                        <span class="price-value">50 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B8%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%2F%20%D0%BF%D0%BE%D1%81%D1%83%D0%B4%D0%BE%D0%BC%D0%BE%D0%B5%D1%87%D0%BD%D0%BE%D0%B9%20%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Устранение локального засора</span>
+                    <div class="price-right">
+                        <span class="price-value">40 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A3%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%D1%81%D0%BE%D1%80%D0%B0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Чистка и обслуживание бойлера</span>
+                    <div class="price-right">
+                        <span class="price-value">70 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A7%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D0%B1%D0%BE%D0%B9%D0%BB%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top: 10px;">
+                <p style="color:var(--text-muted); margin-bottom:16px; font-size:0.9rem;">Или напишите любым удобным способом:</p>
+                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="btn btn-tg btn-sm">Telegram</a>
+                    <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="btn btn-wa btn-sm">WhatsApp</a>
+                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="btn btn-vb btn-sm">Viber</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- СТРАНИЦА 3: ЭЛЕКТРИКА -->
+    <!-- ==================== ELECTRIC ==================== -->
     <div id="electric" class="page">
-        <div class="container">
-            <h2>⚡ Услуги электрика в Софии</h2>
-            <p style="color:var(--text-gray); margin-bottom: 20px;">Работы с соблюдением всех норм электробезопасности.</p>
-            
-            <div class="alert-banner">
-                💡 <strong>Выезд электрика для дефектовки и консультации (без ремонта) — 11 €.</strong>
+        <div class="container" style="padding-top: 40px;">
+            <h2 class="section-title">⚡ Электромонтаж в Софии</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom:24px;">Безопасные электрические работы любой сложности</p>
+
+            <div class="alert">
+                ⚡ <strong>Выезд, диагностика и консультация (без ремонта) — 11 €</strong>
             </div>
 
             <div class="price-table">
-                <div class="price-item"><span class="price-name">Монтаж и подключение люстры / потолочного светильника</span><span class="price-value">37 €</span></div>
-                <div class="price-item"><span class="price-name">Замена розетки или выключателя (1 шт.)</span><span class="price-value">15 €</span></div>
-                <div class="price-item"><span class="price-name">Монтаж светодиодной (LED) ленты (за погонный метр)</span><span class="price-value">12 €</span></div>
-                <div class="price-item"><span class="price-name">Установка и подключение варочной панели / духовки</span><span class="price-value">60 €</span></div>
-                <div class="price-item"><span class="price-name">Поиск и устранение причины короткого замыкания</span><span class="price-value">50 €/час</span></div>
+                <div class="price-item">
+                    <span class="price-name">Установка люстры / потолочного светильника</span>
+                    <div class="price-right">
+                        <span class="price-value">40 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BB%D1%8E%D1%81%D1%82%D1%80%D1%8B" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Замена розетки или выключателя</span>
+                    <div class="price-right">
+                        <span class="price-value">25 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%97%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%80%D0%BE%D0%B7%D0%B5%D1%82%D0%BA%D0%B8%20%2F%20%D0%B2%D1%8B%D0%BA%D0%BB%D1%8E%D1%87%D0%B0%D1%82%D0%B5%D0%BB%D1%8F" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Подключение варочной панели / духового шкафа</span>
+                    <div class="price-right">
+                        <span class="price-value">50 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%B0%D1%80%D0%BE%D1%87%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D0%B8%20%2F%20%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BA%D0%B8" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Поиск и устранение короткого замыкания</span>
+                    <div class="price-right">
+                        <span class="price-value">от 40 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%B7%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Установка дополнительной розетки (с прокладкой провода)</span>
+                    <div class="price-right">
+                        <span class="price-value">45 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D1%80%D0%BE%D0%B7%D0%B5%D1%82%D0%BA%D0%B8" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Замена автомата / УЗО в щитке</span>
+                    <div class="price-right">
+                        <span class="price-value">35 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%97%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B0%20%2F%20%D0%A3%D0%97%D0%9E" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top: 10px;">
+                <p style="color:var(--text-muted); margin-bottom:16px; font-size:0.9rem;">Или напишите любым удобным способом:</p>
+                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="btn btn-tg btn-sm">Telegram</a>
+                    <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="btn btn-wa btn-sm">WhatsApp</a>
+                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="btn btn-vb btn-sm">Viber</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- СТРАНИЦА 4: МУЖ НА ЧАС -->
+    <!-- ==================== HANDYMAN ==================== -->
     <div id="handyman" class="page">
-        <div class="container">
-            <h2>🛠️ Муж на час / Бытовой монтаж</h2>
-            <p style="color:var(--text-gray); margin-bottom: 20px;">Мелкие работы по дому, требующие профессионального инструмента.</p>
-            
-            <div class="alert-banner">
-                📐 <strong>Выезд мастера на замеры и консультацию (без работ) — 11 €.</strong>
+        <div class="container" style="padding-top: 40px;">
+            <h2 class="section-title">🛠️ Муж на час / Бытовой монтаж</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom:24px;">Мелкие работы по дому, требующие профессионального инструмента</p>
+
+            <div class="alert">
+                📐 <strong>Выезд мастера на замеры и консультацию (без работ) — 11 €</strong>
             </div>
 
             <div class="price-table">
-                <div class="price-item"><span class="price-name">Навешивание телевизора на стену (сборка кронштейна)</span><span class="price-value">40 €</span></div>
-                <div class="price-item"><span class="price-name">Установка настенных полок, картин или зеркала</span><span class="price-value">20 €</span></div>
-                <div class="price-item"><span class="price-name">Монтаж потолочного или настенного карниза для штор</span><span class="price-value">30 €</span></div>
-                <div class="price-item"><span class="price-name">Сверление технологических отверстий (бетон/кирпич) (за шт.)</span><span class="price-value">5 €</span></div>
-                <div class="price-item"><span class="price-name">Сборка комода, тумбы или кухонного шкафа</span><span class="price-value">50 €</span></div>
-                <div class="price-item"><span class="price-name">Регулировка просевших мебельных фасадов и дверей</span><span class="price-value">30 €</span></div>
+                <div class="price-item" style="background: rgba(255,121,0,0.08); flex-wrap: wrap; gap: 12px;">
+                    <span class="price-name" style="min-width: 220px;">
+                        <strong>Мелкие работы по дому (почасово)</strong><br>
+                        <span style="font-size:0.85rem; color:var(--text-muted); font-weight:400;">
+                            Подтянуть, подкрутить, подстучать, подремонтировать, подшевелить и другие мелкие задачи, которые не входят в фиксированный прайс
+                        </span>
+                    </span>
+                    <div class="price-right" style="flex-wrap: wrap;">
+                        <div style="display:flex; gap:16px; align-items:center;">
+                            <div style="text-align:center;">
+                                <div style="font-weight:700; color:var(--primary); font-size:1.1rem;">30 €</div>
+                                <div style="font-size:0.75rem; color:var(--text-muted);">1-й час</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div style="font-weight:700; color:var(--primary); font-size:1.1rem;">20 €</div>
+                                <div style="font-size:0.75rem; color:var(--text-muted);">каждый следующий</div>
+                            </div>
+                        </div>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9C%D0%B5%D0%BB%D0%BA%D0%B8%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D0%BF%D0%BE%20%D0%B4%D0%BE%D0%BC%D1%83%20%28%D0%BF%D0%BE%D1%87%D0%B0%D1%81%D0%BE%D0%B2%D0%BE%29" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Навешивание телевизора на стену (сборка кронштейна)</span>
+                    <div class="price-right">
+                        <span class="price-value">40 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9D%D0%B0%D0%B2%D0%B5%D1%88%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%BE%D1%80%D0%B0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Установка настенных полок, картин или зеркала</span>
+                    <div class="price-right">
+                        <span class="price-value">20 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BE%D0%BA%20%2F%20%D0%B7%D0%B5%D1%80%D0%BA%D0%B0%D0%BB%D0%B0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Монтаж потолочного или настенного карниза для штор</span>
+                    <div class="price-right">
+                        <span class="price-value">30 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D0%BA%D0%B0%D1%80%D0%BD%D0%B8%D0%B7%D0%B0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Сверление технологических отверстий (бетон/кирпич) за шт.</span>
+                    <div class="price-right">
+                        <span class="price-value">5 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A1%D0%B2%D0%B5%D1%80%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%D1%82%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B8%D0%B9" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Сборка комода, тумбы или кухонного шкафа</span>
+                    <div class="price-right">
+                        <span class="price-value">50 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%BC%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <span class="price-name">Регулировка просевших мебельных фасадов и дверей</span>
+                    <div class="price-right">
+                        <span class="price-value">30 €</span>
+                        <a href="https://t.me/dimahandyman?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A%20%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%BE%D0%B2" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Заказать</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top: 10px;">
+                <p style="color:var(--text-muted); margin-bottom:16px; font-size:0.9rem;">Или напишите любым удобным способом:</p>
+                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="btn btn-tg btn-sm">Telegram</a>
+                    <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="btn btn-wa btn-sm">WhatsApp</a>
+                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="btn btn-vb btn-sm">Viber</a>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- ==================== CONTACTS ==================== -->
+    <div id="contacts" class="page">
+        <div class="container" style="padding-top: 40px;">
+            <div class="contact-section">
+                <h2>📞 Связаться с мастером</h2>
+                <p>Выберите удобный мессенджер — отвечу как можно быстрее</p>
+
+                <div class="messengers">
+                    <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="messenger-btn tg">
+                        <div class="icon">✈️</div>
+                        <div class="info">
+                            <span>Telegram</span>
+                            <span>@dimahandyman</span>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="messenger-btn wa">
+                        <div class="icon">💬</div>
+                        <div class="info">
+                            <span>WhatsApp</span>
+                            <span>+38 063 671 7701</span>
+                        </div>
+                    </a>
+                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="messenger-btn vb">
+                        <div class="icon">📞</div>
+                        <div class="info">
+                            <span>Viber</span>
+                            <span>+38 063 671 7701</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hours-box">
+                    <h4>🕒 Часы работы</h4>
+                    <p><strong>Понедельник – Пятница:</strong> 09:00 – 18:00</p>
+                    <p><strong>Суббота:</strong> 09:00 – 13:00</p>
+                    <p><strong>Воскресенье:</strong> выходной</p>
+                    <p class="note">
+                        Время визита обязательно согласовывается заранее через любой удобный способ связи: 
+                        <strong>Telegram, WhatsApp или Viber</strong>.
+                    </p>
+                </div>
+
+                <div style="margin-top: 28px; text-align: center;">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+                        Мелкие работы по дому (подтянуть, подкрутить, подремонтировать и т.п.):<br>
+                        <strong style="color: var(--primary);">Первый час — 30 €, каждый следующий — 20 €</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Handyman Sofia. Все права защищены. Цены указаны в евро.</p>
+        <p>© 2026 Handyman Sofia. Все права защищены. Цены указаны в евро.</p>
         <p>Качественный бытовой сервис для русскоязычных экспатов в Болгарии.</p>
     </footer>
 
-    <!-- Скрипт переключения между страницами без перезагрузки -->
+    <!-- FLOATING BAR (mobile) -->
+    <div class="float-bar">
+        <a href="https://t.me/dimahandyman" target="_blank" rel="noopener" class="tg">
+            <span class="icon">✈️</span>
+            Telegram
+        </a>
+        <a href="https://wa.me/380636717701" target="_blank" rel="noopener" class="wa">
+            <span class="icon">💬</span>
+            WhatsApp
+        </a>
+        <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="vb">
+            <span class="icon">📞</span>
+            Viber
+        </a>
+    </div>
+
     <script>
         function switchPage(pageId) {
-            // Скрываем все страницы
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            // Убираем активный класс у ссылок меню
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Показываем нужную страницу
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+
             document.getElementById(pageId).classList.add('active');
-            // Подсвечиваем пункт меню
             const activeLink = document.getElementById('nav-' + pageId);
-            if(activeLink) activeLink.classList.add('active');
-            
-            // Прокручиваем наверх страницы
-            window.scrollTo(0, 0);
+            if (activeLink) activeLink.classList.add('active');
+
+            // Close mobile menu
+            document.getElementById('main-nav').classList.remove('open');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            document.getElementById('main-nav').classList.toggle('open');
         }
     </script>
 </body>
 </html>
-
-
-
-
-
