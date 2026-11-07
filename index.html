@@ -570,6 +570,7 @@
                 <a href="https://t.me/handymansofia" target="_blank" rel="noopener" class="btn btn-tg">Telegram</a>
                 <a href="https://wa.me/359892037786" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
                 <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="btn btn-vb">Viber</a>
+                <button onclick="openCalendly()" class="btn btn-primary" data-i18n="btn_book">Записаться онлайн</button>
             </div>
         </section>
 
@@ -938,6 +939,7 @@
                 nav_handyman: "Муж на час",
                 nav_contacts: "Контакты",
                 btn_order: "Заказать",
+                btn_book: "Записаться онлайн",
                 hero_title: "Премиальный сервис<br>бытового ремонта в Софии",
                 hero_subtitle: "Профессиональное решение любых домашних проблем. Быстро, надёжно, на русском и украинском языке.",
                 badge_visit: "Выезд и консультация —",
@@ -1008,6 +1010,7 @@
                 nav_handyman: "Чоловік на годину",
                 nav_contacts: "Контакти",
                 btn_order: "Замовити",
+                btn_book: "Записатися онлайн",
                 hero_title: "Преміальний сервіс<br>побутового ремонту в Софії",
                 hero_subtitle: "Професійне вирішення будь-яких домашніх проблем. Швидко, надійно, російською та українською мовою.",
                 badge_visit: "Виїзд і консультація —",
@@ -1115,5 +1118,20 @@
         // Init language
         setLang(currentLang);
     </script>
+
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script>
+        function openCalendly() {
+            if (window.Calendly) {
+                Calendly.initPopupWidget({url: 'https://calendly.com/dimdim031285/2hours'});
+            } else {
+                window.open('https://calendly.com/dimdim031285/2hours', '_blank');
+            }
+            return false;
+        }
+    </script>
+
 </body>
 </html>
