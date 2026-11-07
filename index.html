@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handyman Sofia — Профессиональный домашний мастер</title>
+    <style>
+        :root {
+            --primary: #ff7900;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+            --border: #2d2d2d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Навигация */
+        header {
+            background-color: #0a0a0a;
+            border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background: rgba(255, 121, 0, 0.1);
+        }
+
+        .btn-tg {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-tg:hover {
+            background: #e56c00;
+            box-shadow: 0 0 15px rgba(255,121,0,0.4);
+        }
+
+        /* Управление страницами */
+        .page {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Общие компоненты */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.95)), url('https://unsplash.com') center/cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-section h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero-section p {
+            color: var(--text-gray);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Диагностический баннер */
+        .alert-banner {
+            background: rgba(255, 121, 0, 0.1);
+            border: 1px dashed var(--primary);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .alert-banner strong {
+            color: var(--primary);
+        }
+
+        /* Сетка цен */
+        .price-table {
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-name {
+            font-weight: 500;
+        }
+
+        .price-value {
+            color: var(--primary);
+            font-weight: 700;
+            background: rgba(255,121,0,0.08);
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        /* Преимущества */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 30px;
+            color: var(--text-gray);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo" onclick="switchPage('home')">HANDYMAN <span>SOFIA</span></div>
+            <nav>
+                <a onclick="switchPage('home')" id="nav-home" class="active">Главная</a>
+                <a onclick="switchPage('plumbing')" id="nav-plumbing">Сантехника</a>
+                <a onclick="switchPage('electric')" id="nav-electric">Электрика</a>
+                <a onclick="switchPage('handyman')" id="nav-handyman">Муж на час</a>
+            </nav>
+            <a href="https://t.me" target="_blank" class="btn-tg">Заказать</a>
+        </div>
+    </header>
+    <!-- СТРАНИЦА 1: ГЛАВНАЯ -->
+    <div id="home" class="page active">
+        <section class="hero-section">
+            <h1>Премиальный сервис бытового ремонта</h1>
+            <p>Профессиональное решение любых домашних проблем в Софии. Быстро, надежно, на русском языке.</p>
+            <div class="alert-banner" style="max-width: 600px; margin: 0 auto 30px;">
+                ⏱️ <strong>Почасовой тариф на мелкие работы:</strong> Первый час — 30 €, последующие — 20 €.
+            </div>
+        </section>
+        
+        <div class="container">
+            <div class="alert-banner">
+                📍 <strong>Выезд мастера для осмотра и консультации (без проведения ремонта) — всего 11 €.</strong> Если ремонт выполняется на месте, вы платите строго по прайсу выполненных услуг!
+            </div>
+            
+            <h2 style="text-align:center; margin-bottom: 20px;">Направления работы</h2>
+            <div class="features-grid">
+                <div class="feature-card" style="cursor:pointer;" onclick="switchPage('plumbing')">
+                    <h3>💧 Водопровод и Сантехника</h3>
+                    <p>Ремонт и замена смесителей, сифонов, устранение течей, комплексное обслуживание и чистка бойлеров.</p>
+                    <span style="color:var(--primary); font-size:14px; font-weight:bold; display:block; margin-top:10px;">Перейти к прайсу →</span>
+                </div>
+                <div class="feature-card" style="cursor:pointer;" onclick="switchPage('electric')">
+                    <h3>⚡ Электромонтаж</h3>
+                    <p>Безопасная установка люстр, замена розеток, выключателей, подключение кухонной техники и поиск замыканий.</p>
+                    <span style="color:var(--primary); font-size:14px; font-weight:bold; display:block; margin-top:10px;">Перейти к прайсу →</span>
+                </div>
+                <div class="feature-card" style="cursor:pointer;" onclick="switchPage('handyman')">
+                    <h3>🛠️ Муж на час / Монтаж</h3>
+                    <p>Навешивание телевизоров, зеркал, полок, карнизов. Профессиональное сверление стен и сборка мебели.</p>
+                    <span style="color:var(--primary); font-size:14px; font-weight:bold; display:block; margin-top:10px;">Перейти к прайсу →</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- СТРАНИЦА 2: САНТЕХНИКА -->
+    <div id="plumbing" class="page">
+        <div class="container">
+            <h2>💧 Услуги сантехника (ВиК) в Софии</h2>
+            <p style="color:var(--text-gray); margin-bottom: 20px;">Профессиональный ремонт и монтаж сантехнических приборов.</p>
+            
+            <div class="alert-banner">
+                🔧 <strong>Выезд, диагностика и консультация (без ремонта) — 11 €.</strong>
+            </div>
+
+            <div class="price-table">
+                <div class="price-item"><span class="price-name">Замена или установка смесителя / крана</span><span class="price-value">45 €</span></div>
+                <div class="price-item"><span class="price-name">Монтаж или замена сифона раковины</span><span class="price-value">45 €</span></div>
+                <div class="price-item"><span class="price-name">Установка новой раковины / умывальника</span><span class="price-value">65 €</span></div>
+                <div class="price-item"><span class="price-name">Подключение стиральной или посудомоечной машины</span><span class="price-value">50 €</span></div>
+                <div class="price-item"><span class="price-name">Устранение локального засора канализации</span><span class="price-value">40 €</span></div>
+                <div class="price-item"><span class="price-name">Комплексная чистка бойлера от накипи</span><span class="price-value">75 €</span></div>
+                <div class="price-item"><span class="price-name">Замена ТЭНа / анода / термостата бойлера</span><span class="price-value">55 €</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- СТРАНИЦА 3: ЭЛЕКТРИКА -->
+    <div id="electric" class="page">
+        <div class="container">
+            <h2>⚡ Услуги электрика в Софии</h2>
+            <p style="color:var(--text-gray); margin-bottom: 20px;">Работы с соблюдением всех норм электробезопасности.</p>
+            
+            <div class="alert-banner">
+                💡 <strong>Выезд электрика для дефектовки и консультации (без ремонта) — 11 €.</strong>
+            </div>
+
+            <div class="price-table">
+                <div class="price-item"><span class="price-name">Монтаж и подключение люстры / потолочного светильника</span><span class="price-value">37 €</span></div>
+                <div class="price-item"><span class="price-name">Замена розетки или выключателя (1 шт.)</span><span class="price-value">15 €</span></div>
+                <div class="price-item"><span class="price-name">Монтаж светодиодной (LED) ленты (за погонный метр)</span><span class="price-value">12 €</span></div>
+                <div class="price-item"><span class="price-name">Установка и подключение варочной панели / духовки</span><span class="price-value">60 €</span></div>
+                <div class="price-item"><span class="price-name">Поиск и устранение причины короткого замыкания</span><span class="price-value">50 €/час</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- СТРАНИЦА 4: МУЖ НА ЧАС -->
+    <div id="handyman" class="page">
+        <div class="container">
+            <h2>🛠️ Муж на час / Бытовой монтаж</h2>
+            <p style="color:var(--text-gray); margin-bottom: 20px;">Мелкие работы по дому, требующие профессионального инструмента.</p>
+            
+            <div class="alert-banner">
+                📐 <strong>Выезд мастера на замеры и консультацию (без работ) — 11 €.</strong>
+            </div>
+
+            <div class="price-table">
+                <div class="price-item"><span class="price-name">Навешивание телевизора на стену (сборка кронштейна)</span><span class="price-value">40 €</span></div>
+                <div class="price-item"><span class="price-name">Установка настенных полок, картин или зеркала</span><span class="price-value">20 €</span></div>
+                <div class="price-item"><span class="price-name">Монтаж потолочного или настенного карниза для штор</span><span class="price-value">30 €</span></div>
+                <div class="price-item"><span class="price-name">Сверление технологических отверстий (бетон/кирпич) (за шт.)</span><span class="price-value">5 €</span></div>
+                <div class="price-item"><span class="price-name">Сборка комода, тумбы или кухонного шкафа</span><span class="price-value">50 €</span></div>
+                <div class="price-item"><span class="price-name">Регулировка просевших мебельных фасадов и дверей</span><span class="price-value">30 €</span></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Handyman Sofia. Все права защищены. Цены указаны в евро.</p>
+        <p>Качественный бытовой сервис для русскоязычных экспатов в Болгарии.</p>
+    </footer>
+
+    <!-- Скрипт переключения между страницами без перезагрузки -->
+    <script>
+        function switchPage(pageId) {
+            // Скрываем все страницы
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Убираем активный класс у ссылок меню
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Показываем нужную страницу
+            document.getElementById(pageId).classList.add('active');
+            // Подсвечиваем пункт меню
+            const activeLink = document.getElementById('nav-' + pageId);
+            if(activeLink) activeLink.classList.add('active');
+            
+            // Прокручиваем наверх страницы
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
