@@ -567,10 +567,9 @@
             </div>
 
             <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-                <a href="https://t.me/handymansofia" target="_blank" rel="noopener" class="btn btn-tg">Telegram</a>
-                <a href="https://wa.me/359892037786" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
-                <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="btn btn-vb">Viber</a>
-                <button onclick="openCalendly()" class="btn btn-primary" data-i18n="btn_book">Записаться онлайн</button>
+                <button onclick="openContactModal('tg')" class="btn btn-tg">Telegram</button>
+                <button onclick="openContactModal('wa')" class="btn btn-wa">WhatsApp</button>
+                <button onclick="openContactModal('vb')" class="btn btn-vb">Viber</button>
             </div>
         </section>
 
@@ -603,21 +602,21 @@
                 <p data-i18n="how_order_sub">Напишите удобным способом — ответим быстро и согласуем время</p>
 
                 <div class="messengers">
-                    <a href="https://t.me/handymansofia" target="_blank" rel="noopener" class="messenger-btn tg">
+                    <a href="#" onclick="openContactModal('tg'); return false;" class="messenger-btn tg">
                         <div class="icon">✈️</div>
                         <div class="info">
                             <span>Telegram</span>
                             <span>@handymansofia</span>
                         </div>
                     </a>
-                    <a href="https://wa.me/359892037786" target="_blank" rel="noopener" class="messenger-btn wa">
+                    <a href="#" onclick="openContactModal('wa'); return false;" class="messenger-btn wa">
                         <div class="icon">💬</div>
                         <div class="info">
                             <span>WhatsApp</span>
                             <span>+359 89 203 7786</span>
                         </div>
                     </a>
-                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="messenger-btn vb">
+                    <a href="#" onclick="openContactModal('vb'); return false;" class="messenger-btn vb">
                         <div class="icon">📞</div>
                         <div class="info">
                             <span>Viber</span>
@@ -864,21 +863,21 @@
                 <p data-i18n="contacts_sub">Выберите удобный мессенджер — отвечу как можно быстрее</p>
 
                 <div class="messengers">
-                    <a href="https://t.me/handymansofia" target="_blank" rel="noopener" class="messenger-btn tg">
+                    <a href="#" onclick="openContactModal('tg'); return false;" class="messenger-btn tg">
                         <div class="icon">✈️</div>
                         <div class="info">
                             <span>Telegram</span>
                             <span>@handymansofia</span>
                         </div>
                     </a>
-                    <a href="https://wa.me/359892037786" target="_blank" rel="noopener" class="messenger-btn wa">
+                    <a href="#" onclick="openContactModal('wa'); return false;" class="messenger-btn wa">
                         <div class="icon">💬</div>
                         <div class="info">
                             <span>WhatsApp</span>
                             <span>+359 89 203 7786</span>
                         </div>
                     </a>
-                    <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="messenger-btn vb">
+                    <a href="#" onclick="openContactModal('vb'); return false;" class="messenger-btn vb">
                         <div class="icon">📞</div>
                         <div class="info">
                             <span>Viber</span>
@@ -916,15 +915,15 @@
 
     <!-- FLOATING BAR -->
     <div class="float-bar">
-        <a href="https://t.me/handymansofia" target="_blank" rel="noopener" class="tg">
+        <a href="#" onclick="openContactModal('tg'); return false;" class="tg">
             <span class="icon">✈️</span>
             Telegram
         </a>
-        <a href="https://wa.me/359892037786" target="_blank" rel="noopener" class="wa">
+        <a href="#" onclick="openContactModal('wa'); return false;" class="wa">
             <span class="icon">💬</span>
             WhatsApp
         </a>
-        <a href="viber://chat?number=%2B380636717701" target="_blank" rel="noopener" class="vb">
+        <a href="#" onclick="openContactModal('vb'); return false;" class="vb">
             <span class="icon">📞</span>
             Viber
         </a>
@@ -939,7 +938,9 @@
                 nav_handyman: "Муж на час",
                 nav_contacts: "Контакты",
                 btn_order: "Заказать",
-                btn_book: "Записаться онлайн",
+                modal_title: "Выберите услугу",
+                modal_placeholder: "Опишите проблему...",
+                btn_send: "Отправить",
                 hero_title: "Сервис<br>бытового ремонта в Софии",
                 hero_subtitle: "Профессиональное решение любых домашних проблем. Быстро, надёжно, на русском и украинском языке.",
                 badge_visit: "Выезд и консультация —",
@@ -1010,7 +1011,9 @@
                 nav_handyman: "Чоловік на годину",
                 nav_contacts: "Контакти",
                 btn_order: "Замовити",
-                btn_book: "Записатися онлайн",
+                modal_title: "Оберіть послугу",
+                modal_placeholder: "Опишіть проблему...",
+                btn_send: "Надіслати",
                 hero_title: "Сервіс<br>побутового ремонту в Софії",
                 hero_subtitle: "Професійне вирішення будь-яких домашніх проблем. Швидко, надійно, російською та українською мовою.",
                 badge_visit: "Виїзд і консультація —",
@@ -1119,18 +1122,153 @@
         setLang(currentLang);
     </script>
 
-    <!-- Calendly -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script>
-        function openCalendly() {
-            if (window.Calendly) {
-                Calendly.initPopupWidget({url: 'https://calendly.com/dimdim031285/2hours'});
-            } else {
-                window.open('https://calendly.com/dimdim031285/2hours', '_blank');
-            }
-            return false;
+
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeContactModal()">&times;</span>
+            <h3 data-i18n="modal_title">Выберите услугу</h3>
+            <div class="modal-services">
+                <button class="service-btn" onclick="selectService(this, 'plumbing')" data-i18n="nav_plumbing">Сантехника</button>
+                <button class="service-btn" onclick="selectService(this, 'electric')" data-i18n="nav_electric">Электрика</button>
+                <button class="service-btn" onclick="selectService(this, 'handyman')" data-i18n="nav_handyman">Муж на час</button>
+            </div>
+            <textarea id="problemText" placeholder="Опишите проблему..." data-i18n-placeholder="modal_placeholder"></textarea>
+            <button id="sendMsgBtn" class="btn btn-primary" onclick="sendMessage()" disabled data-i18n="btn_send">Отправить</button>
+        </div>
+    </div>
+
+    <style>
+        .modal {
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            width: 90%;
+            max-width: 420px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            right: 16px; top: 12px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .modal-services {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 16px 0;
+        }
+        .service-btn {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            text-align: left;
+        }
+        .service-btn.selected {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+        #problemText {
+            width: 100%;
+            min-height: 90px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            padding: 12px;
+            margin-bottom: 16px;
+            font-family: inherit;
+            resize: vertical;
+        }
+        #sendMsgBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+
+    <script>
+        let selectedMessenger = '';
+        let selectedService = '';
+
+        function openContactModal(messenger) {
+            selectedMessenger = messenger;
+            selectedService = '';
+            document.getElementById('problemText').value = '';
+            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('selected'));
+            document.getElementById('sendMsgBtn').disabled = true;
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        function selectService(btn, service) {
+            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedService = service;
+            checkReady();
+        }
+
+        function checkReady() {
+            const text = document.getElementById('problemText').value.trim();
+            document.getElementById('sendMsgBtn').disabled = !(selectedService && text.length > 2);
+        }
+
+        document.addEventListener('input', function(e) {
+            if (e.target.id === 'problemText') checkReady();
+        });
+
+        function sendMessage() {
+            const text = document.getElementById('problemText').value.trim();
+            if (!selectedService || !text) return;
+
+            const serviceNames = {
+                ru: { plumbing: 'Сантехника', electric: 'Электрика', handyman: 'Муж на час' },
+                ua: { plumbing: 'Сантехніка', electric: 'Електрика', handyman: 'Чоловік на годину' }
+            };
+            const names = serviceNames[currentLang] || serviceNames.ru;
+            const serviceLabel = names[selectedService] || selectedService;
+
+            const msg = currentLang === 'ua'
+                ? `Доброго дня! Хочу замовити: ${serviceLabel}.\nОпис: ${text}`
+                : `Здравствуйте! Хочу заказать: ${serviceLabel}.\nОписание: ${text}`;
+
+            const encoded = encodeURIComponent(msg);
+            let url = '';
+            if (selectedMessenger === 'tg') {
+                url = 'https://t.me/handymansofia?text=' + encoded;
+            } else if (selectedMessenger === 'wa') {
+                url = 'https://wa.me/359892037786?text=' + encoded;
+            } else if (selectedMessenger === 'vb') {
+                url = 'viber://chat?number=%2B380636717701&text=' + encoded;
+            }
+            window.open(url, '_blank');
+            closeContactModal();
+        }
+
+        // Close modal on outside click
+        document.getElementById('contactModal')?.addEventListener('click', function(e) {
+            if (e.target.id === 'contactModal') closeContactModal();
+        });
     </script>
 
 </body>
